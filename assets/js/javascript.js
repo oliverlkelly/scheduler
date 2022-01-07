@@ -9,9 +9,9 @@ var fullDayHours =
     });
 
 fullDayHours.forEach((i) => {
-    var timetableBlock = $(`<form data-name="${i}" class=timetableBlock></form>`);
-    var blockTime = $(`<div class=blockTime>"${i}"</div>`);
-    var entryField = $(`<textarea name="${i}" class=textarea></textarea>`);
+    var timetableBlock = $(`<form data-name=${i} class=row></form>`);
+    var blockTime = $(`<div class="hour time-block">${i}</div>`);
+    var entryField = $(`<textarea name=${i} class=textarea></textarea>`);
     var saveButton = $(`<button class=saveBtn><i class="fas fa-save"></i></button>`);
     timetableBlock.append(blockTime);
     timetableBlock.append(entryField);
