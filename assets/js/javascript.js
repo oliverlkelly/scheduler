@@ -7,3 +7,8 @@ var fullDayHours =
     Array.from(new Array(24)).map((val, i) => {
         return moment().hour(i).format('HH:00');
     });
+
+fullDayHours.forEach((i) => {
+    var timetableBlock = $(`<form data-name="${i}"></form>`);
+    $(".container").append(timetableBlock);
+});
