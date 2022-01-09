@@ -1,21 +1,20 @@
 var momentVar = moment();
 $("#currentDay").text(momentVar.format('dddd, MMMM Do'));
-var currentTime = momentVar.hour();
+var currentTime = momentVar.format('HH:00');
 
 function timeIndicator(elements){
     elements.forEach(t =>{
         if(t.dataset.time === currentTime){
-            t.classList.add("present");
+            t.children[1].classList.add("present");
         }
         else if(t.dataset.time < currentTime){
-            t.classList.add("past");
+            t.children[1].classList.add("past");
         }
         else{
-            t.classList.add("future");
+            t.children[1].classList.add("future");
         }
     })
 }
-
 
 var fullDayHours = 
     Array.from(new Array(24)).map((val, i) => {
@@ -32,3 +31,6 @@ fullDayHours.forEach((i) => {
     timetableBlock.append(saveButton);
     $(".container").append(timetableBlock);
 });
+
+var containerChildren = Array.from(document.getElementById("container").children);
+timeIndicator(containerChildren);
