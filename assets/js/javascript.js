@@ -1,6 +1,7 @@
 var momentVar = moment();
 $("#currentDay").text(momentVar.format('dddd, MMMM Do'));
 var currentTime = momentVar.format('HH:00');
+var storage = window.localStorage;
 
 function timeIndicator(elements){
     elements.forEach(t =>{
@@ -24,8 +25,13 @@ var fullDayHours =
 fullDayHours.forEach((i) => {
     var timetableBlock = $(`<form data-time=${i} class=row></form>`);
     var blockTime = $(`<div class="hour"><p class="hourText">${i}</p></div>`);
-    var entryField = $(`<textarea time=${i} class=textarea></textarea>`);
-    var saveButton = $(`<button class=saveBtn><i class="fas fa-save"></i></button>`);
+    var entryField = $(`<textarea time=${i} class=textarea>${storage.getItem(i) || ""}</textarea>`);
+    var saveButton = $(`<button type="submit" class=saveBtn><i class="fas fa-save"></i></button>`);
+    timetableBlock.submit((j) => {
+        j.preventDefault();
+        var value = $(`textarea[time="${i}"]`).val();
+        storage.setItem(i, value);
+    })
     timetableBlock.append(blockTime);
     timetableBlock.append(entryField);
     timetableBlock.append(saveButton);

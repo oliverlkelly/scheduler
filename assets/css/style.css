@@ -73,6 +73,7 @@ textarea {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  min-width: 50px;
 }
 
 .saveBtn i:hover {
@@ -82,7 +83,7 @@ textarea {
 
 @media screen and (min-width: 2105px) {
   .textarea {
-    min-width: 1052px;
-    max-width: 1052px;
+    min-width: 1025px;
+    max-width: 1025px;
   }
 }
