@@ -31,15 +31,25 @@ textarea {
 }
 
 .row {
+  justify-content: center;
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+}
+
+.textarea {
+  min-width: 50vw;
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+}
+
+.hourText {
+  margin-top: 1rem;
+  margin-right: 1rem;
 }
 
 .past {
@@ -68,4 +78,11 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 2105px) {
+  .textarea {
+    min-width: 1052px;
+    max-width: 1052px;
+  }
 }
