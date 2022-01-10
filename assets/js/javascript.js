@@ -2,6 +2,8 @@ var momentVar = moment();
 $("#currentDay").text(momentVar.format('dddd, MMMM Do'));
 var currentTime = momentVar.format('HH:00');
 var storage = window.localStorage;
+var startTime = 6;
+var dayLength = 17;
 
 function timeIndicator(elements){
     elements.forEach(t =>{
@@ -18,8 +20,8 @@ function timeIndicator(elements){
 }
 
 var fullDayHours = 
-    Array.from(new Array(24)).map((val, i) => {
-        return moment().hour(i).format('HH:00');
+    Array.from(new Array(dayLength)).map((val, i) => {
+        return moment().hour(i+startTime).format('HH:00');
     });
 
 fullDayHours.forEach((i) => {
